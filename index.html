@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue</title>
+
+    <!--script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script-->
+
+    <!--
+    <link rel="stylesheet" href="http://unpkg.com/element-plus/dist/index.css" />
+    <script src="http://unpkg.com/vue@next"></script>
+    <script src="http://unpkg.com/element-plus"></script>
+    -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.6/index.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.36/vue.global.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.6/index.full.min.js"></script>
+
+    <style>
+        .demo{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div id="app" class="demo">
+    {{ message }}
+    <el-input v-model="input" placeholder="Please input"></el-input>
+    <el-button :plain="true" @click="open">Show message</el-button>
+</div>
+
+<script>
+const {ElMessage} = ElementPlus; //ElementPlus.ElMessage
+
+const HelloVueApp = {
+  data() {
+    return {
+      message: 'Hello Vue!!',
+      input: '456',
+    }
+  },
+  methods:{
+    open(){
+        if(this.input == '123'){
+            ElMessage('this is a message.')
+        }
+    }
+  }
+}
+
+const app = Vue.createApp(HelloVueApp)
+
+app.use(ElementPlus)
+
+app.mount('#app')
+</script>
+</body>
+</html>
